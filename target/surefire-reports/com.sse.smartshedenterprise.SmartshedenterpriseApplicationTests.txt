@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.sse.smartshedenterprise.SmartshedenterpriseApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 49.53 s -- in com.sse.smartshedenterprise.SmartshedenterpriseApplicationTests

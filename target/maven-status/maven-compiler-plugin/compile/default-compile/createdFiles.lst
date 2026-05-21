@@ -1,0 +1,11 @@
+com\sse\smartshedenterprise\entity\Animal.class
+com\sse\smartshedenterprise\controller\AnimalController.class
+com\sse\smartshedenterprise\repository\AnimalRepository.class
+com\sse\smartshedenterprise\service\AnimalServiceImpl.class
+com\sse\smartshedenterprise\service\HealthRecordService.class
+com\sse\smartshedenterprise\service\AnimalService.class
+com\sse\smartshedenterprise\repository\HealthRecordRepository.class
+com\sse\smartshedenterprise\SmartshedenterpriseApplication.class
+com\sse\smartshedenterprise\entity\HealthRecord.class
+com\sse\smartshedenterprise\controller\HealthRecordController.class
+com\sse\smartshedenterprise\service\HealthRecordServiceImpl.class
