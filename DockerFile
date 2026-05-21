@@ -1,6 +1,24 @@
-FROM eclipse-temurin:26-jdk-alpine
-VOLUME /tmp
-# Set the working directory in the container
+# Stage 1: Build the application using Java 26 and matching Maven configuration
+FROM maven:3-eclipse-temurin-26 AS build
 WORKDIR /app
-COPY target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+# Copy the dependency management settings
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+# Copy the project source files and package into a JAR
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Stage 2: Create a minimal, secure container for production
+FROM eclipse-temurin:26-jre
+WORKDIR /app
+
+# Safely copy the newly compiled JAR file from Stage 1
+COPY --from=build /app/target/*.jar app.jar
+
+# Explicitly open up standard network mapping
+EXPOSE 8080
+
+# Spin up your Java application
+ENTRYPOINT ["java", "-jar", "app.jar"]
